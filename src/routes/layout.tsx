@@ -10,10 +10,8 @@ export default component$(() => {
           <Slot />
         </section>
       </main>
-      <footer>
-        <a href="https://www.builder.io/" target="_blank">
-          Made with ♡ by Builder.io
-        </a>
+      <footer class="py-12 px-8 bg-gray-100">
+        
       </footer>
     </>
   );
