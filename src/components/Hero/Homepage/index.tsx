@@ -1,11 +1,5 @@
 import { component$, Slot } from '@builder.io/qwik';
 
-type HomepageHeroProps = {
-  scribbleWord?: string | null
-  scribbleType?: string | null
-  excerpt?: string | null
-}
-
 export const Heading = component$((props: { title?: string | null}) => {
   const title = props.title?.split('\\r') || null;
   if (!title) return null;
