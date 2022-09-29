@@ -15,11 +15,15 @@ export default component$(() => {
           q:slot="subtitle"
           subtitle="Aenean viverra sed tellus aptent accumsan quisque vel dignissim adipiscing senectus duis"
         />
+        <HomepageHero.Background
+          q:slot="background"
+          image="https://www.datocms-assets.com/44234/1642521802-homepage-backup-image.jpg?auto=format&crop=focalpoint&fit=crop&h=970&w=1725"
+        />
       </HomepageHero.Container>
     </div>
   );
 });
 
 export const head: DocumentHead = {
-  title: 'Welcome to Qwik',
+  title: 'We are digital. Above all.',
 };
