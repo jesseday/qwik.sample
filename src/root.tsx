@@ -2,9 +2,11 @@ import { component$, useStyles$ } from '@builder.io/qwik';
 import { QwikCity, RouterOutlet, ServiceWorkerRegister } from '@builder.io/qwik-city';
 import { RouterHead } from './components/router-head/router-head';
 
-import styles from './global.css';
+import resetStyles from  '@unocss/reset/tailwind.css'
+import styles from 'uno.css';
 
 export default component$(() => {
+  useStyles$(resetStyles);
   useStyles$(styles);
   /**
    * The root of a QwikCity site always start with the <QwikCity> component,
