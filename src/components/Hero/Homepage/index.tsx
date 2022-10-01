@@ -75,7 +75,7 @@ export const Background = component$((props: BackgroundProps) => {
 export const Container = component$(() => {
   return (
     <div class="relative max-w-screen-3xl mx-auto text-white">
-      <div class="absolute top-1/2 left-0 -translate-y-1/2 px-12 w-full z-10 ">
+      <div class="absolute top-1/2 left-0 transform -translate-y-1/2 px-12 w-full z-10 ">
         <Slot name="title" />
         <Slot name="subtitle" />
       </div>

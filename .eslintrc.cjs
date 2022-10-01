@@ -10,7 +10,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:qwik/recommended',
   ],
-  ignorePatterns: ['.eslintrc.cjs', 'unocss.config.js'],
+  ignorePatterns: ['.eslintrc.cjs', 'windi.config.ts'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     tsconfigRootDir: __dirname,
