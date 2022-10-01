@@ -1,6 +1,9 @@
 import { defineConfig } from 'windicss/helpers'
 
 export default defineConfig({
+  attributify: {
+    prefix: 'w:',
+  },
   theme: {
     screens: {
       'sm': '640px',
@@ -45,5 +48,8 @@ export default defineConfig({
         }
       }
     }
-  }
+  },
+  plugins: [
+    require('windicss/plugin/aspect-ratio'),
+  ]
 });

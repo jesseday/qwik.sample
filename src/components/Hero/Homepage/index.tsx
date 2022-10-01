@@ -5,7 +5,7 @@ export const Heading = component$((props: { title?: string | null}) => {
   if (!title) return null;
 
   return (
-    <h1 class="text-4xl sm:text-5xl lg:text-8xl xl:text-10xl">
+    <h1 class="text-4xl sm:(text-5xl) lg:(text-8xl) xl:(text-10xl)">
       {title.map((line: any) => <>{line}<br/></>)}
     </h1>
   )
@@ -19,27 +19,14 @@ export const Subtitle = component$((props: { subtitle?: string | null }) => {
   );
 });
 
-type AspectRatioProps = {
-  withGradient?: boolean
+type GradientBg = {
   customGradient?: string | null
 };
 
-export function AspectRatio({withGradient = false, customGradient = null}: AspectRatioProps ) {
-  let gradient = '';
-  if (withGradient && !customGradient) {
-    gradient = 'bg-gradient-to-br from-brand-blue-400 to-brand-purple-500';
-  }
-  if (withGradient && customGradient) {
-    gradient = customGradient;
-  }
-
-  // The img is a 16 x 9 transparent image that sets the aspect ratio.
-  // As the css aspect-ratio property is more widely supported,
-  // we can transition over to that.
+export function GradientBg({customGradient = null}: GradientBg ) {
+  const gradient = customGradient ? customGradient : 'bg-gradient-to-br from-brand-blue-400 to-brand-purple-500';
   return (
-    <>
-      <img class={`${gradient} block w-full h-auto`} aria-hidden='true' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAQAAACRI2S5AAAAEElEQVR42mNkIAAYRxWAAQAG9gAKqv6+AwAAAABJRU5ErkJggg==" />
-    </>
+    <div class={`aspect-w-16 aspect-h-9 ${gradient}`}></div>
   );
 }
 
@@ -51,7 +38,7 @@ type BackgroundProps = {
 export const Background = component$((props: BackgroundProps) => {
   if (!props.image) {
     return (
-      <AspectRatio withGradient={true} />
+      <GradientBg />
     );
   }
 
@@ -60,14 +47,13 @@ export const Background = component$((props: BackgroundProps) => {
   // As the css aspect-ratio property is more widely supported,
   // we can transition over to that.
   return (
-    <>
-      <AspectRatio />
-      <picture class="absolute top-0 left-0 w-full ">
+    <div class="aspect-w-16 aspect-h-9">
+      <picture>
         <source srcSet="https://www.datocms-assets.com/44234/1642521802-homepage-backup-image.jpg?auto=format&amp;crop=focalpoint&amp;dpr=0.25&amp;fit=crop&amp;fm=webp&amp;h=970&amp;w=1725 431w,https://www.datocms-assets.com/44234/1642521802-homepage-backup-image.jpg?auto=format&amp;crop=focalpoint&amp;dpr=0.5&amp;fit=crop&amp;fm=webp&amp;h=970&amp;w=1725 862w,https://www.datocms-assets.com/44234/1642521802-homepage-backup-image.jpg?auto=format&amp;crop=focalpoint&amp;dpr=0.75&amp;fit=crop&amp;fm=webp&amp;h=970&amp;w=1725 1293w,https://www.datocms-assets.com/44234/1642521802-homepage-backup-image.jpg?auto=format&amp;crop=focalpoint&amp;fit=crop&amp;fm=webp&amp;h=970&amp;w=1725 1725w" sizes="(max-width: 1725px) 100vw, 1725px" type="image/webp" />
         <source srcSet="https://www.datocms-assets.com/44234/1642521802-homepage-backup-image.jpg?auto=format&amp;crop=focalpoint&amp;dpr=0.25&amp;fit=crop&amp;h=970&amp;w=1725 431w,https://www.datocms-assets.com/44234/1642521802-homepage-backup-image.jpg?auto=format&amp;crop=focalpoint&amp;dpr=0.5&amp;fit=crop&amp;h=970&amp;w=1725 862w,https://www.datocms-assets.com/44234/1642521802-homepage-backup-image.jpg?auto=format&amp;crop=focalpoint&amp;dpr=0.75&amp;fit=crop&amp;h=970&amp;w=1725 1293w,https://www.datocms-assets.com/44234/1642521802-homepage-backup-image.jpg?auto=format&amp;crop=focalpoint&amp;fit=crop&amp;h=970&amp;w=1725 1725w" sizes="(max-width: 1725px) 100vw, 1725px" />
-        <img class="h-full w-full top-0 left-0" src="https://www.datocms-assets.com/44234/1642521802-homepage-backup-image.jpg?auto=format&amp;crop=focalpoint&amp;fit=crop&amp;h=970&amp;w=1725" alt="Landscape" title="Adapt" />
+        <img class="w-full h-full object-cover" src="https://www.datocms-assets.com/44234/1642521802-homepage-backup-image.jpg?auto=format&amp;crop=focalpoint&amp;fit=crop&amp;h=970&amp;w=1725" alt="Landscape" title="Adapt" />
       </picture>
-    </>
+    </div>
   )
 });
 
